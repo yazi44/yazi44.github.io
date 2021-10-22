@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Contextual: Music Based on Your Location</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/server.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <button onclick="getLocation()">Suggest a song</button>
+    <p id="coordinate"></p>
+    <p id="video"></p>
+
+    <script>
+
+        const x = document.getElementById("coordinate");
+        var now = new Date();
+        var time = now.getHours() + ":" + now.getMinutes();
+        var timeHours = now.getHours();
+        var coordinates = parseInt(x);
+
+        console.log(typeof coordinates);
+        console.log(coordinates.toString());
+
+        // This returns the coordinates of the user's location
+        var coordinateTag = document.getElementById("coordinate");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                coordinateTag.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        var video = document.getElementById("video");
+        function showPosition(position) {
+            // coordinateTag.innerHTML = Math.round(position.coords.latitude * 100) / 100;
+            var latitude = Math.round(position.coords.latitude * 100) / 100;
+            console.log(latitude);
+            if (latitude == -37.71) {
+                coordinateTag.innerHTML = "You're at Home!"
+                video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/epOf2RLqLdw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+            } else
+            if (latitude == -37.81) {
+                coordinateTag.innerHTML = "You're near Fitzroy Gardens!"
+                video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/vHS8fXF3X8A' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
