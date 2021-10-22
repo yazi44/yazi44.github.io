@@ -20,7 +20,7 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <button onclick="getLocation()">Suggest a song.</button>
+    <button onclick="getLocation()">Suggest a song</button>
     <p id="coordinate"></p>
     <p id="video"></p>
 
@@ -57,6 +57,11 @@
             if (latitude == -37.81) {
                 coordinateTag.innerHTML = "You're near Fitzroy Gardens!"
                 video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/vHS8fXF3X8A' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+            } else
+            if (latitude == -37.70) {
+                coordinateTag.innerHTML = "You're near Boronia Reserve!"
+                video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/tQsC5IEXDag' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+
             }
         }
 
