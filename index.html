@@ -49,6 +49,7 @@
         function showPosition(position) {
             // coordinateTag.innerHTML = Math.round(position.coords.latitude * 100) / 100;
             var latitude = Math.round(position.coords.latitude * 100) / 100;
+            var docklands = -37.82;
             console.log(latitude);
             if (latitude == -37.71) {
                 coordinateTag.innerHTML = "You're at Home!"
@@ -62,7 +63,12 @@
                 coordinateTag.innerHTML = "You're near Boronia Reserve!"
                 video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/tQsC5IEXDag' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
 
-            } else {
+            } else 
+            if (latitude = docklands) {
+                coordinateTag.innerHTML = "You're near Docklands!"
+                video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/wl-HPIu5kcs' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>" 
+            }
+            else {
                 coordinateTag.innerHTML = "Music coming to your area soon!"
             }
         }
