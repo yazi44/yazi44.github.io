@@ -11,6 +11,7 @@
     <title> Contextual: Music Based on Your Location</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/server.js"></script>
@@ -20,11 +21,13 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div class="container-fluid">
     <h1> Contextual: Music Based on Your Location </h1>
     <div id="music-content">
     <button onclick="getLocation()">Suggest a song</button>
     <p id="coordinate"></p>
     <p id="video"></p>
+    </div>
     </div>
 
     <script>
@@ -52,11 +55,11 @@
         function showPosition(position) {
             // coordinateTag.innerHTML = Math.round(position.coords.latitude * 100) / 100;
             var latitude = Math.round(position.coords.latitude * 100) / 100;
-            var docklands = -37.82;
+            //var docklands = -37.82;
             console.log(latitude);
             if (latitude == -37.71) {
                 coordinateTag.innerHTML = "You're at Home!"
-                video.innerHTML = "<iframe width='560' height='315' src='https://www.youtube.com/embed/epOf2RLqLdw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+                video.innerHTML = "<iframe width='1200' height='500' src='https://www.youtube.com/embed/epOf2RLqLdw' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
             } else
             if (latitude == -37.81) {
                 coordinateTag.innerHTML = "You're near Fitzroy Gardens!"
